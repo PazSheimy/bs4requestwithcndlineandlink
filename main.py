@@ -11,7 +11,7 @@ from requests.exceptions import HTTPError
 
 # version number TODO: Load version library
 VERSION = 2.02
-
+linknumber = []
 # main sites to search with query strings
 # will have to make this a full dispatch table to custom functions later
 sites = {
@@ -106,7 +106,25 @@ if __name__ == '__main__':
 
         #Part2 of assigment
         # gutenberg
+        """
         for link in soup.find_all(class_="booklink"):
             with open('guternbeg_aiw.txt', 'w') as f:
                 f.write(link.text)
             print(link.text)
+"""
+
+        with open('guternbeg_aiw.txt', 'w') as f:
+            count = 0
+
+            while count < 6:
+                for link in soup.find_all(class_="booklink"):
+                    f.write(f'\n----------------R---------{count}:-------\n' + link.text.strip())
+                    print(link.text)
+                    count = count + 1
+            else:
+                print("f")
+
+
+
+
+
